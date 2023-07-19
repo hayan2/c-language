@@ -102,5 +102,11 @@
     <ClCompile Include="2038.c">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="11758.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="11052.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
