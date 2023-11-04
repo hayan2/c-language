@@ -222,6 +222,57 @@
     <ClCompile Include="2562.c">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="10813.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="5597.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="3052.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="10811.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="1546.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="27866.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="2743.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="9086.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="11654.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="11720.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="10809.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="2675.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="1152.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="2908.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="5622.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="11718.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="25083.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="11382.c">
