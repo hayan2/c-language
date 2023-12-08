@@ -1,34 +1,30 @@
 #define _CRT_SECURE_NO_WARNINGS
-#define MAX_SIZE 1000001
+#define ARRAY_LEN 20001
+#define CHAR_LEN 51
 #include <stdio.h>
+#include <string.h>
 
-int sorted[MAX_SIZE] = { 0, };
-int arr[MAX_SIZE] = { 0, };
-
-// merge sort
+char sorted[ARRAY_LEN][CHAR_LEN];
+char arr[ARRAY_LEN][CHAR_LEN];
 
 void merge(int start, int mid, int end);
 void merge_sort(int start, int end);
 
 int main(void) {
+	
 	int n;
 
 	scanf("%d", &n);
 
 	for (int i = 0; i < n; i++) {
-		scanf("%d", &arr[i]);
-	}
-
-	if (n == 1) {
-		printf("%d", arr[0]);
-		
-		return 0;
+		scanf("%s", arr[i]);
 	}
 
 	merge_sort(0, n - 1);
 
+	printf("\n");
 	for (int i = 0; i < n; i++) {
-		printf("%d\n", sorted[i]);
+		printf("%s\n", sorted[i]);
 	}
 
 	return 0;
@@ -42,26 +38,26 @@ void merge(int start, int mid, int end) {
 
 	while (leftSideArrayIndex <= mid && rightSideArrayIndex <= end) {
 		if (arr[leftSideArrayIndex] <= arr[rightSideArrayIndex]) {
-			sorted[sortedArrayIndex++] = arr[leftSideArrayIndex++];
+			strcpy(sorted[sortedArrayIndex++], arr[leftSideArrayIndex++]);
 		}
 		else {
-			sorted[sortedArrayIndex++] = arr[rightSideArrayIndex++];
+			strcpy(sorted[sortedArrayIndex++], arr[rightSideArrayIndex++]);			
 		}
 	}
 
 	if (mid < leftSideArrayIndex) {
 		for (int i = rightSideArrayIndex; i <= end; i++) {
-			sorted[sortedArrayIndex++] = arr[i];
+			strcpy(sorted[sortedArrayIndex++], arr[i]);			
 		}
 	}
 	else {
 		for (int i = leftSideArrayIndex; i <= mid; i++) {
-			sorted[sortedArrayIndex++] = arr[i];
+			strcpy(sorted[sortedArrayIndex++], arr[i]);
 		}
 	}
 
 	for (int i = start; i <= end; i++) {
-		arr[i] = sorted[i];
+		strcpy(arr[i], sorted[i]);
 	}
 }
 
