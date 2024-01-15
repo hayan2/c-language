@@ -1,39 +1,35 @@
 #define _CRT_SECURE_NO_WARNINGS
+#define ARRAY_SIZE 51
 #include <stdio.h>
 #include <string.h>
+#include <stdlib.h>
 
 int main(void) {
-	int T;
-	int length = 0, cnt = 0;
-	char vps[51] = { NULL, };
+	char arr[ARRAY_SIZE];
+	int N;
 
-	scanf("%d ", &T);
-	// -- 40 '('  41 ')'
-	for (int i = 0; i < T; i++) {
-		gets(vps);
-		
-		length = strlen(vps);
+	scanf("%d", &N);
 
-		for (int j = 0; j < length; j++) {
-			if (vps[j] == 40) {
-				cnt++;
+	for (int i = 0; i < N; i++) {
+		int res = 0;
+		scanf("%s", arr);
+		for (int j = 0; j < strlen(arr); j++) {
+			if (arr[j] == '(') {
+				res++;
 			}
-			if (vps[j] == 41) {
-				cnt--;
+			else if (arr[j] == ')') {
+				res--;
 			}
-
-			if (cnt < 0) {
-				cnt = -999;
+			if (res < 0) {
+				break;
 			}
 		}
-		if (cnt == 0) {
+		if (res == 0) {
 			printf("YES\n");
 		}
 		else {
 			printf("NO\n");
 		}
-
-		cnt = 0;
 	}
 
 	return 0;
