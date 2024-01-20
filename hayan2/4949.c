@@ -5,41 +5,49 @@
 #include <string.h>
 
 int main(void) {
+	char sentence[ARRAY_SIZE];
+	char dp[ARRAY_SIZE];
+
 	while (1) {
-		char sentence[ARRAY_SIZE];
-		fgets(sentence, ARRAY_SIZE, stdin);
-		if (sentence[0] == '.') {			
-			break;
+		int count = 0;
+		gets(sentence);
+		if (sentence[0] == '.' && strlen(sentence) == 1) {
+			exit(0);
 		}
-		int res = 0;
+		
 		for (int i = 0; i < strlen(sentence); i++) {
-			if (sentence[i] == '0') {
-				break;
-			}
 			if (sentence[i] == '(') {
-				res++;
-			}
-			else if (sentence[i] == ')') {
-				res--;
+				dp[count++] = '(';
 			}
 			else if (sentence[i] == '[') {
-				res += 101;
+				dp[count++] = '[';
+			}
+			else if (sentence[i] == ')') {
+				if (dp[count - 1] == '(') {
+					count--;
+				}
+				else {
+					count = -8407;
+					break;
+				}
 			}
 			else if (sentence[i] == ']') {
-				res -= 101;
-			}
-
-			if (res < 0) {
-				break;
+				if (dp[count - 1] == '[') {
+					count--;
+				}
+				else {
+					count = -422;
+					break;
+				}
 			}
 		}
-		if (res == 0) {
-			printf("YES\n");
-			
+
+		if (count == 0) {
+			printf("yes\n");
 		}
 		else {
-			printf("NO\n");
-		}		
+			printf("no\n");
+		}
 	}
 
 	return 0;
