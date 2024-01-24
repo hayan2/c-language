@@ -1,5 +1,4 @@
 #define _CRT_SECURE_NO_WARNINGS
-#define COMMAND_SIZE 7
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -46,67 +45,65 @@ int deQueue(Queue* queue) {
 	}
 
 	int data = queue->front->data;
-	
+
 	queue->front = queue->front->link;
 	queue->size--;
 
 	return data;
 }
 
-int returnQueueSize(Queue* queue) {
-	return queue->size;
-}
+int shuffleCard(Queue* queue) {
+	Node* newNode = (Node*)malloc(sizeof(Node));
 
-int returnQueueFrontData(Queue* queue) {
-	if (isQueueEmpty(queue)) {
-		return -1;
-	}
-	else {
+	queue->front = queue->front->link;
+	queue->size--;
+	
+	if (queue->size == 1) {
 		return queue->front->data;
 	}
+	newNode->data = queue->front->data;
+	newNode->link = NULL;
+
+	queue->front = queue->front->link;
+	queue->rear->link = newNode;
+	queue->rear = newNode;
+	
+	return queue->front->data;
 }
 
-int returnQueueRearData(Queue* queue) {
-	if (isQueueEmpty(queue)) {
-		return -1;
+void displayQueue(Queue* queue) {
+	Node* newNode = (Node*)malloc(sizeof(Node));
+
+	newNode = queue->front;
+	for (int i = 0; i < queue->size; i++) {
+		printf("%d ", newNode->data);
+		newNode = newNode->link;
 	}
-	else {
-		return queue->rear->data;
-	}
+	printf("\n");
 }
 
 int main(void) {
-	char command[COMMAND_SIZE];
 	Queue queue;
-	int N, data;
+	int N, data, res = 0;
 
 	scanf("%d", &N);
 
-	initQueue(&queue);
-
-	for (int i = 0; i < N; i++) {
-		scanf("%s", command);
-
-		if (strcmp(command, "push") == 0) {
-			scanf("%d", &data);
-			enQueue(&queue, data);
-		}
-		else if (strcmp(command, "pop") == 0) {
-			printf("%d\n", deQueue(&queue));
-		}
-		else if (strcmp(command, "size") == 0) {
-			printf("%d\n", returnQueueSize(&queue));
-		}
-		else if (strcmp(command, "empty") == 0) {	
-			printf("%d\n", isQueueEmpty(&queue));
-		}
-		else if (strcmp(command, "front") == 0) {
-			printf("%d\n", returnQueueFrontData(&queue));
-		}
-		else if (strcmp(command, "back") == 0) {
-			printf("%d\n", returnQueueRearData(&queue));
-		}
+	if (N == 1) {
+		printf("1");
+		exit(0);
 	}
 
+	initQueue(&queue);
+
+	for (int i = 1; i < N + 1; i++) {
+		enQueue(&queue, i);
+	}
+
+	while (queue.size != 1) {		
+		res = shuffleCard(&queue);
+	}
+
+	printf("%d", res);
+	
 	return 0;
 }
