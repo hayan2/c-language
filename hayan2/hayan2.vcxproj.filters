@@ -177,6 +177,12 @@
     <ClCompile Include="2480.c">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="10810.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="bullet.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="11382.c">
