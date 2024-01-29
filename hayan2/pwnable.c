@@ -2,18 +2,16 @@
 #include <stdlib.h>
 #include <string.h>
 
-int main() {
-    int sz = 0x30;
-    char* buf = (char*)malloc(sizeof(char) * sz);
+int main(void) {
+    char secret[16] = "secret message";
+    char barrier[4];
+    char name[8];
 
-    puts("Hello World!");
-    printf("Education + Hack = ?\n");
-    fgets(buf, sz, stdin);
+    memset(barrier, 0, 4);
 
-    if (!strncmp(buf, "DreamHack", 9))
-        printf("Welcome Hackers :)\n");
-    else
-        printf("No No :/\n");
-
+    printf("Your name : ");
+    read(0, name, 12);
+    printf("Your name is %s", name);
+    
     return 0;
 }
