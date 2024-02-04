@@ -9,121 +9,96 @@ typedef struct Node {
 	struct Node* link;
 }Node;
 
-typedef struct QueueStack {
-	// queue 0 stack 1
-	int dataStrcutureType;
-	Node* top;
+typedef struct Queue {
 	Node* front;
 	Node* rear;
 	int size;
-}QueueStack;
+}Queue;
 
-int isDataStructureEmpty(QueueStack* queuestack) {
-	return queuestack->size == 0;
+void initQueue(Queue* queue) {
+	queue->front = NULL;
+	queue->rear = NULL;
+	queue->size = 0;
 }
 
-void initQueueStack(QueueStack* queuestack) {
-	queuestack->top = NULL;
-	queuestack->front = NULL;
-	queuestack->rear = NULL;
-	queuestack->size = 0;	
+int isQueueEmpty(Queue* queue) {
+	return queue->size == 0;
 }
 
-void push(QueueStack* queuestack, int data) {
+void enQueueToFront(Queue* queue, int data) {
 	Node* newNode = (Node*)malloc(sizeof(Node));
 	newNode->data = data;
 	newNode->link = NULL;
 
-	if (isDataStructureEmpty(queuestack)) {
-		queuestack->top = newNode;
+	if (isQueueEmpty(queue)) {
+		queue->front = newNode;
+		queue->rear = newNode;
 	}
 	else {
-		newNode->link = queuestack->top;
-		queuestack->top = newNode;
+		newNode->link = queue->front;
+		queue->front = newNode;
 	}
-	queuestack->size++;
+	queue->size++;
 }
 
-void enQueue(QueueStack* queuestack, int data) {
+void enQueueToRear(Queue* queue, int data) {
 	Node* newNode = (Node*)malloc(sizeof(Node));
 	newNode->data = data;
 	newNode->link = NULL;
 
-	if (isDataStructureEmpty(queuestack)) {
-		queuestack->front = newNode;
-		queuestack->rear = newNode;		
+	if (isQueueEmpty(queue)) {
+		queue->front = newNode;
+		queue->rear = newNode;
 	}
 	else {
-		queuestack->rear->link = newNode;
-		queuestack->rear = newNode;
+		queue->rear->link = newNode;
+		queue->rear = newNode;
 	}
-	queuestack->size++;
+	queue->size++;
 }
 
-int pop(QueueStack* queuestack) {
-
-}
-
-int deQueue(QueueStack* queuestack) {
-
-}
-
-void displayQueueStack(QueueStack* queuestack) {
+int deQueue(Queue* queue) {
 	Node* newNode = (Node*)malloc(sizeof(Node));
+	newNode = queue->front;
+	int data = newNode->data;
 
-	// queue
-	if (queuestack->dataStrcutureType == 0) {
-		newNode = queuestack->front;
-		printf("| QUEUE | Front | ");
-		for (int i = 0; i < queuestack->size; i++) {
-			printf("%d -> ", newNode->data);
-			newNode = newNode->link;
-		}
-		printf("| Rear |\n");
-	}
-	// stack
-	else {
-		newNode = queuestack->top;
-		printf("| STACK |  Top  | ");
-		for (int i = 0; i < queuestack->size; i++) {
-			printf("%d -> ", newNode->data);
-			newNode = newNode->link;
-		}
-		printf("|\n");
-	}	
+	queue->front = queue->front->link;
+	queue->size--;
+
+	free(newNode);
+
+	return data;
 }
 
-int main(void) {	
-	int N, M, A, B;
+int main(void) {
+	Queue* queue = (Queue*)malloc(sizeof(Queue));
+	int flag[ARRAY_SIZE] = { 0, };
+	int N, M, A, B, C;
 
+	initQueue(queue);
 	scanf("%d", &N);
 
-	QueueStack* queuestack = (QueueStack*)malloc(sizeof(QueueStack) * N);
-	
 	for (int i = 0; i < N; i++) {
 		scanf("%d", &A);
-		queuestack[i].dataStrcutureType = A;
-		initQueueStack(&queuestack[i]);
+		if (A == 0) {
+			flag[i] = 1;
+		}
 	}
 
 	for (int i = 0; i < N; i++) {
 		scanf("%d", &B);
-		if (queuestack[i].dataStrcutureType == 0) {
-			enQueue(&queuestack[i], B);
-		}
-		else {
-			push(&queuestack[i], B);
+		if (flag[i] == 1) {
+			enQueueToFront(queue, B);
 		}
 	}
 
 	scanf("%d", &M);
 
 	for (int i = 0; i < M; i++) {
-		if (queuestack[i].dataStrcutureType == 1) {
-			continue;
-		}
-
-
+		scanf("%d", &C);
+		enQueueToRear(queue, C);
+		int res = deQueue(queue);
+		printf("%d ", res);
 	}
 
 	return 0;
