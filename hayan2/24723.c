@@ -8,10 +8,10 @@ int main(void) {
 	scanf("%d", &N);
 
 	for (int i = 0; i < N; i++) {
-		res
+		res *= 2;
 	}
 
-	printf("%d", );
+	printf("%d", res);
 
 	return 0;
 }
