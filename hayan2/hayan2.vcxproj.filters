@@ -156,5 +156,8 @@
     <ClCompile Include="25192.c">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="hashtable.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
