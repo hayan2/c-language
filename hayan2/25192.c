@@ -31,9 +31,8 @@ void merge(int start, int mid, int end) {
 			strcpy(sorted[sortedArrayIndex++], arr[i]);	
 	}
 
-	for (int i = start; i <= end; i++) {
-		strcpy(arr[i], sorted[i]);
-	}
+	for (int i = start; i <= end; i++)
+		strcpy(arr[i], sorted[i]);	
 }
 
 void merge_sort(int start, int end) {
