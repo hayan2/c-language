@@ -4,7 +4,7 @@
 #include <string.h>
 
 int main(void) {
-
+	adasdasd
 
 	return 0;
 }
