@@ -162,5 +162,14 @@
     <ClCompile Include="26069.c">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="char_compare_function.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="2108.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="integer_compare_function.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
