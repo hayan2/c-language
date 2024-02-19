@@ -171,5 +171,8 @@
     <ClCompile Include="integer_compare_function.c">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="commit.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
