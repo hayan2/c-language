@@ -174,5 +174,8 @@
     <ClCompile Include="commit.c">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="20920.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
