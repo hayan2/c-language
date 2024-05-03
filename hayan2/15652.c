@@ -7,7 +7,7 @@
 int arr[ARRAY_LEN];
 int visited[ARRAY_LEN];
 
-void DFS(int len, int N, int M) {
+void DFS(int x, int len, int N, int M) {
 	if (len == M) {
 		for (int i = 0; i < M; i++) {
 			printf("%d ", arr[i]);
@@ -16,14 +16,9 @@ void DFS(int len, int N, int M) {
 		return;
 	}
 
-	for (int i = 1; i <= N; i++) {
-		if (visited[i] == 0) {
-			arr[len] = i;
-			visited[i] = 1;
-			DFS(len + 1, N, M);
-			visited[i] = 0;
-		}
-		
+	for (int i = x; i <= N; i++) {
+		arr[len] = i;
+		DFS(i, len + 1, N, M);
 	}
 }
 
@@ -33,7 +28,7 @@ int main(void) {
 
 	scanf("%d %d", &N, &M);
 
-	DFS(0, N, M);
+	DFS(1, 0, N, M);
 
 	return 0;
 }
