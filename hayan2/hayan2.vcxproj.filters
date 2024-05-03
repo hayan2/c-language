@@ -195,5 +195,23 @@
     <ClCompile Include="4779.c">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="2447.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="11729.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="15649.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="15650.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="backtracking.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="15651.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
