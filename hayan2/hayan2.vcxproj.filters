@@ -225,5 +225,16 @@
     <ClCompile Include="9663.c">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="9663-1.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="2580.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="test.txt">
+      <Filter>소스 파일</Filter>
+    </Text>
   </ItemGroup>
 </Project>
