@@ -11,10 +11,6 @@ int N, max = -MM_NUM, min = MM_NUM;
 int operators[OPERATOR_LEN];
 int arr[ARRAY_LEN];
 
-int operate(int num1, int num2, int x) {	
-	
-}
-
 void DFS(int cnt, int result) {	
 	if (cnt == N - 1) {
 		max = (max < result) ? result : max;
