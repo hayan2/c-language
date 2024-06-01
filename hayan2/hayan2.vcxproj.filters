@@ -267,6 +267,15 @@
     <ClCompile Include="1463.c">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="10844.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="2156.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="11053.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Text Include="test.txt">
