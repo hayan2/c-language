@@ -279,6 +279,12 @@
     <ClCompile Include="11054.c">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="2565.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="sorting_two_dimensional_array.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Text Include="test.txt">
