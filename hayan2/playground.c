@@ -28,9 +28,12 @@ int main(void) {
 		arr[S[i] - ASCII_a][alp[S[i] - ASCII_a]++]++;
 	}
 	*/
+	char a;
+	int b, c;
 
-	arr[0][alp[0]++]++;
-	printf("%d", arr[0][1]);
+	scanf("%c %d %d", &a, &b, &c);
+
+	printf("%c %d", a, a - ASCII_a);
 
 	return 0;
 }
