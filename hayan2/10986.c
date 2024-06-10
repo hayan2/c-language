@@ -3,10 +3,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-
 int A[ARRAY_LEN];
 long long S[ARRAY_LEN];
-
 
 int main(void) {
 	int N, M, quotCnt = 0;
