@@ -19,7 +19,7 @@ int main(void) {
 		}
 	}
 
-	printf("%d", N);
+	printf("%d\n", N);	
 
 	return 0;
 }
