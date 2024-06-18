@@ -336,6 +336,9 @@
     <ClCompile Include="strtok_parsing_string.c">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="13305.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Text Include="test.txt">
