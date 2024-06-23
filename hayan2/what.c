@@ -4,7 +4,7 @@
 #include <string.h>
 
 int main(void) {
-
+	printf("%d", 1 << 20);
 
 	return 0;
 }
