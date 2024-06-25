@@ -22,7 +22,7 @@ ull pow(int a, int b) {
 
 	ull ret = pow(a, b / 2);
 
-	return (b % 2) ? (a * ((ret * ret) % MOD)) % MOD : (ret * ret) % MOD;
+	return (b & 1) ? (a * ((ret * ret) % MOD)) % MOD : (ret * ret) % MOD;
 }
 
 int main(void) {
