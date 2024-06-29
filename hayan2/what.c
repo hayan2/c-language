@@ -4,7 +4,11 @@
 #include <string.h>
 
 int main(void) {
-	printf("%d", 1 << 20);
+	int B = 100000;
+	while (B) {
+		printf("%d\n", B);
+		B >>= 1;
+	}
 
 	return 0;
 }
