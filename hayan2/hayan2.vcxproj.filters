@@ -87,6 +87,12 @@
     <ClCompile Include="11444.c">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="14928.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="14928-1.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Text Include="test.txt">
