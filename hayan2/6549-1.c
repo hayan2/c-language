@@ -1,8 +1,8 @@
 #define _CRT_SECURE_NO_WARNINGS
-#define ARRAY_LEN 100023
+#define ARRAY_LEN 100034
 #define ull unsigned long long
-#define MIN(a, b) a > b ? b : a
 #define MAX(a, b) a > b ? a : b
+#define MIN(a, b) a > b ? b : a
 #include <stdio.h>
 
 ull hist[ARRAY_LEN] = { 0, };
@@ -11,7 +11,6 @@ ull getResult(ull low, ull high);
 
 // wrong
 int main(void) {
-	ull res = 0;
 	ull N;
 
 	while (scanf("%lld", &N), N != 0) {
@@ -20,8 +19,7 @@ int main(void) {
 			scanf("%lld", &hist[i]);
 		}
 
-		res = getResult(0, N + 1);
-
+		ull res = getResult(0, N + 1);
 		printf("%lld\n", res);
 	}
 
@@ -38,17 +36,18 @@ ull getResult(ull low, ull high) {
 	}
 
 	while (midL > low || midH < high) {
-		if (midL <= low || (midH < high && hist[midL] <= hist[midH])) {
-			height = MIN(hist[midH], height);
-			midH++;
-		}
-		else {
-			height = MIN(height, hist[midL]);
+		if (midL >= low && hist[midL] <= hist[midL - 1]) {
+			height = MIN(height, hist[midL - 1]);
 			midL--;
 		}
+		if (midH <= high && hist[midH] <= hist[midH + 1]) {
+			height = MIN(height, hist[midH + 1]);
+			midH++;
+		}
+		
 		ull width = midH - midL - 1;
 		midArea = MAX(midArea, width * height);
-	} 
+	}
 
 	return MAX(midArea, MAX(getResult(low, mid), getResult(mid, high)));
 }
