@@ -1,56 +1,56 @@
 #define _CRT_SECURE_NO_WARNINGS
+#define ARRAY_LEN 100001
 #include <stdio.h>
 #include <stdlib.h>
-int arrN[100000];
-int arrM[100000];
-int check[100000];
 
-// 이진탐색트리
-int binary_search_tree(int arr[], int key, int size) {
-	int front, rear, pivot;
-	front = 0;
-	rear = size - 1;
+int compare(const void* a, const void* b) {
+	const int* A = a, * B = b;
 
-	while (1) {
-		pivot = (front + rear) / 2;
-		if (arr[pivot] == key) return 1;
-		if (arr[front] == key) return 1;
-		if (arr[rear] == key) return 1;
-
-		if (arr[pivot] < key)
-			front = pivot + 1;
-		else
-			rear = pivot - 1;
-
-		if (front >= rear)
-			return 0;
-	}
+	return (*A > *B) - (*A < *B);
 }
 
-// 퀵 소트에서 사용할 비교함수
-int cmp(const void* a, const void* b) {
-	return *(int*)a > *(int*)b ? 1 : (*(int*)a < *(int*)b ? -1 : 0);
-}
+int binarySearch(int* A, int N, int x);
 
-int main() {
+int main(void) {
+	int A[ARRAY_LEN], S[ARRAY_LEN];
 	int N, M;
-	int i;
 
 	scanf("%d", &N);
-	for (i = 0; i < N; i++) {
-		scanf("%d", &arrN[i]);
+
+	for (int i = 0; i < N; i++) {
+		scanf("%d", &A[i]);
 	}
 
 	scanf("%d", &M);
-	for (i = 0; i < M; i++) {
-		scanf("%d", &arrM[i]);
+
+	for (int i = 0; i < M; i++) {
+		scanf("%d", &S[i]);
 	}
 
-	// 퀵 소팅
-	qsort(arrN, N, sizeof(int), cmp);
+	qsort(A, N, sizeof(int), compare);
 
-	for (i = 0; i < M; i++) {
-		printf("%d\n", binary_search_tree(arrN, arrM[i], N));
+	for (int i = 0; i < M; i++) {
+		printf("%d\n", binarySearch(A, N, S[i]));
+	}
+
+	return 0;
+}
+
+int binarySearch(int* A, int N, int x) {
+	int low = 0, high = N - 1, mid;
+
+	while (low <= high) {
+		mid = (low + high) / 2;
+
+		if (x > A[mid]) {
+			low = mid + 1;
+		}
+		else if (x < A[mid]) {
+			high = mid - 1;
+		}
+		else {
+			return 1;
+		}
 	}
 
 	return 0;
