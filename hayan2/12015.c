@@ -20,6 +20,7 @@ int main(void) {
 	printf("%d\n", binarySearch(N));	
 
 	return 0;
+
 }
 
 int binarySearch(int N) {
