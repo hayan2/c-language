@@ -4,9 +4,9 @@
 #include <stdlib.h>
 
 typedef struct Heap {
-	Node* front;
-	Node* rear;
-	Node* max;	
+	struct Node* front;
+	struct Node* rear;
+	struct Node* max;
 	int count;
 }Heap;
 
@@ -29,6 +29,9 @@ void initHeap(Heap* heap) {
 void push(Heap* heap, int x) {
 	Node* newNode = (Node*)malloc(sizeof(Node));
 	newNode->x = x;
+	newNode->prev = NULL;
+	newNode->next = NULL;
+	newNode->prevMax = NULL;	
 
 	if (isEmpty(heap)) {
 		heap->front = newNode;
@@ -40,7 +43,7 @@ void push(Heap* heap, int x) {
 	}
 	else {
 		if (heap->max->x > newNode->x) {
-			
+			findInsert(heap, newNode);
 		}
 		else {
 			newNode->prevMax = heap->max;
@@ -54,21 +57,94 @@ void push(Heap* heap, int x) {
 	heap->count++;
 }
 
-void findInsert(Heap* heap, Node* node) {
+int findInsert(Heap* heap, Node* node) {
+	Node* newNode = (Node*)malloc(sizeof(Node));
+	int key = node->x;
 
+	newNode = heap->max;
+	for (int i = 0; i < heap->count; i++) {
+		if (newNode->prevMax != NULL) {
+			if (key >= newNode->prevMax->x && key <= newNode->x) {
+				node->prevMax = newNode->prevMax;
+				newNode->prevMax = node;
+				break;
+			}
+		}
+		else {
+			if (key <= newNode->x) {
+				newNode->prevMax = node;
+			}
+			break;
+		}
+
+		newNode = newNode->prevMax;
+	}	
+	return key;
+}
+
+void displayHeap(Heap* heap) {
+	printf("\nDISPLAY HEAP\n");
+	Node* newNode = (Node*)malloc(sizeof(Node));
+	newNode = heap->front;
+
+	for (int i = 0; i < heap->count; i++) {
+		printf("%d ", newNode->x);
+		newNode = newNode->next;
+	}
+}
+
+void displayMaxHeap(Heap* heap) {
+	printf("\nDISPLAY MAX HEAP\n");
+	Node* newNode = (Node*)malloc(sizeof(Node));
+	newNode = heap->max;
+
+	for (int i = 0; i < heap->count; i++) {
+		printf("%d ", newNode->x);
+		newNode = newNode->prevMax;
+	}
 }
 
 int pop(Heap* heap) {
-	int x;
+	Node* newNode = (Node*)malloc(sizeof(Node));	
+	int ret = 0;
 
 	if (isEmpty(heap)) {
-		x = 0;
+		ret = 0;
 	}
 	else {
-		
+		newNode = heap->max;
+		heap->count--;
+
+		ret = newNode->x;		
+
+		if (newNode->prev == NULL && newNode->next == NULL) {
+			heap->max = NULL;
+			heap->rear = NULL;
+			heap->front = NULL;
+
+			return ret;
+		}
+		if (newNode->prev == NULL) {
+			newNode->next->prev = NULL;
+			heap->max = heap->max->prevMax;
+
+			return ret;
+		}
+		if (newNode->next == NULL) {
+			newNode->prev->next = NULL;
+			heap->max = heap->max->prevMax;
+
+			return ret;
+		}
+		if (newNode->prev != NULL && newNode->next != NULL) {
+			newNode->prev->next = newNode->next;
+			newNode->next->prev = newNode->prev;
+		}
 	}
 
-	return 
+	heap->max = heap->max->prevMax;
+
+	return ret;
 }
 
 int main(void) {
@@ -83,13 +159,14 @@ int main(void) {
 		scanf("%d", &x);
 
 		if (x != 0) {
-			
+			push(&heap, x);
 		}
 		else {
-			
+			printf("pop : [%d]\n", pop(&heap));			
+			displayHeap(&heap);
+			displayMaxHeap(&heap);
+			printf("\n");
 		}
-
-		printf("\n");
 	}
 
 	return 0;
