@@ -147,6 +147,9 @@
     <ClCompile Include="11279-2.c">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="priority-queue.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Text Include="test.txt">

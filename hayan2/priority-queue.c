@@ -1,5 +1,5 @@
 #define _CRT_SECURE_NO_WARNINGS
-#define MAX_ELEMENT 100001
+#define MAX_ELEMENTS 100001
 #define ROOT 1
 #include <stdio.h>
 #include <stdlib.h>
@@ -10,8 +10,7 @@ typedef struct Node {
 }Node;
 
 typedef struct Heap {
-	Node* heap[MAX_ELEMENT];
-	int root;
+	Node* heap[MAX_ELEMENTS];	
 	int size;
 }Heap;
 
@@ -19,19 +18,30 @@ Heap* generateHeap() {
 	return (Heap*)malloc(sizeof(Heap));
 }
 
-void initHeap(Heap* heap) {
-	heap->root = ROOT;
+void initHeap(Heap* heap) {	
 	heap->size = 0;
+}
+
+void initNode(Node* node, int x) {
+	node->data = x;
+	node->key = x;
 }
 
 int isEmpty(Heap* heap) {
 	return heap->size == 0;
 }
 
+Node* generateNode(int x) {
+	Node* node = (Node*)malloc(sizeof(Node));
+	initNode(node, x);
+
+	return node;
+}
+
 void insert(Heap* heap, Node* node) {
 	int idx = (++heap->size);
 
-	while (idx != 1 && node->data > heap->heap[idx / 2]->data) {
+	while (idx != 1 && node->key > heap->heap[idx / 2]->key) {
 		heap->heap[idx] = heap->heap[idx / 2];
 		idx /= 2;
 	}
@@ -39,16 +49,16 @@ void insert(Heap* heap, Node* node) {
 }
 
 Node* delete(Heap* heap) {
-	Node* ret = heap->heap[1];
+	Node* ret = heap->heap[ROOT];
 	Node* tmp = heap->heap[(heap->size)--];
 	
-	int parent = ROOT, child = 2;
-	
+	int parent = ROOT, child = ROOT + 1;
+
 	while (child <= heap->size) {
-		if ((child < heap->size) && (heap->heap[child]->data) < heap->heap[child + 1]->data) {
+		if ((child < heap->size) && (heap->heap[child + 1]->key) > (heap->heap[child]->key)) {
 			child++;
 		}
-		if (tmp->data >= heap->heap[child]->data) {
+		if (tmp->key >= heap->heap[child]->key) {
 			break;
 		}
 		heap->heap[parent] = heap->heap[child];
@@ -63,14 +73,13 @@ Node* delete(Heap* heap) {
 
 void displayHeap(Heap* heap) {
 	for (int i = 1; i <= heap->size; i++) {
-		printf("%d : %d(%d) ", i, heap->heap[i]->data, heap->heap[i]->key);
+		printf("[%d] - %d \n", i, heap->heap[i]->key);
 	}
 }
 
 int main(void) {
 	Heap* heap = generateHeap();
 	initHeap(heap);
-
 	int N, x;
 
 	scanf("%d", &N);
@@ -79,23 +88,18 @@ int main(void) {
 		scanf("%d", &x);
 
 		if (x != 0) {
-			Node* node = (Node*)malloc(sizeof(Node));
-			node->data = x;
-			node->key = x;
-
-			insert(heap, node);
+			insert(heap, generateNode(x));			
 		}
 		else {
-			if (!isEmpty(heap)) {
-				printf("%d\n", delete(heap)->data);
-			}
-			else {
+			if (isEmpty(heap)) {
 				printf("0\n");
 			}
+			else {
+				printf("%d\n", delete(heap)->key); 				
+			}			
 		}
 	}
 
-	// displayHeap(heap);
 
 	return 0;
 }
