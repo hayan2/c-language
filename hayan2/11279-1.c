@@ -3,6 +3,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+// wrong
 typedef struct Heap {
 	struct Node* front;
 	struct Node* rear;
