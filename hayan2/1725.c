@@ -1,16 +1,16 @@
 #define _CRT_SECURE_NO_WARNINGS
+#define ull unsigned long long
 #define MAX(a, b) a > b ? a : b
 #define MIN(a, b) a > b ? b : a
-#define ARRAY_LEN 100001
 #include <stdio.h>
 #include <stdlib.h>
 
 typedef struct Square {
-	int width;
-	int height;
+	ull width;
+	ull height;
 }Square;
 
-int maxArea = 0;
+ull maxArea = 0;
 
 Square* generateSquare() {
 	return (Square*)malloc(sizeof(Square));
@@ -22,19 +22,40 @@ void initSquare(Square* square) {
 
 int main(void) {
 	Square* square = generateSquare();
-	int N, h;
+	initSquare(square);
+	ull h;
+	int N;
 
 	scanf("%d", &N);
 
 	for (int i = 0; i < N; i++) {
-		scanf("%d", &h);
+		scanf("%lld", &h);
 
-		// add -> width++; height = MIN(height, h);
-				 		
-		// keep (initialize)
+		if (square->width == 0 && square->height == 0) {
+			square->width = 1;
+			square->height = h;
+		}
+		// add -> width++; height = MIN(height, h); OR just one histogram
+		else if (square->width * square->height <= (square->width + 1) * MIN(square->height, h)) {
+			if (square->width * square->height < h && MIN(square->height, h) * (square->width + 1) < h) {
+				square->width = 1;
+				square->height = h;
+			}
+			else {
+				square->width++;
+				square->height = (square->height != 0) ? MIN(square->height, h) : h;
+			}
+		}
+		else {
+			initSquare(square);
+		}
 
-		// just one histogram
+		maxArea = MAX(maxArea, square->width * square->height);
 	}
+
+	free(square);
+
+	printf("%d", maxArea);
 
 	return 0;
 }
