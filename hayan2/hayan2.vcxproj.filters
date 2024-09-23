@@ -180,6 +180,12 @@
     <ClCompile Include="2293.c">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="7579.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="7576.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Text Include="test.txt">
