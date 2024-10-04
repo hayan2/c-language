@@ -1,5 +1,5 @@
 #define _CRT_SECURE_NO_WARNINGS
-#define MAX_LEN 20001
+#define MAX_LEN 20005
 #define VISITED 1
 #define INIT_VAL 3
 #define NON_COLOR -1
@@ -9,8 +9,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
-
-// failed
+#include <string.h>
 
 typedef struct Node {
 	struct Node* link;
@@ -103,14 +102,14 @@ void pushBack(Vector* graph, int u, int v) {
 int visited[MAX_LEN] = { 0, };
 int color[MAX_LEN];
 
-bool BFS(Vector* graph, Queue* queue) {
-	if (visited[START] == VISITED) {
+bool BFS(Vector* graph, Queue* queue, int start) {
+	if (visited[start] == VISITED) {
 		return false;
 	}
 
-	visited[START] = VISITED;
-	color[START] = RED;
-	enQueue(queue, START);
+	visited[start] = VISITED;
+	color[start] = RED;
+	enQueue(queue, start);
 
 	while (!isEmpty(queue)) {
 		Node* ret = deQueue(queue);
@@ -126,7 +125,6 @@ bool BFS(Vector* graph, Queue* queue) {
 				color[graph[ret->v].arr[i]] = color[ret->v] ? RED : BLUE;
 			}
 		}
-		free(ret);
 	}
 
 	return true;
@@ -147,7 +145,10 @@ void displayGraph(Vector* graph, int V) {
 }
 
 int main(void) {
+	memset(color, -1, sizeof(color));
+
 	int K, V, E;
+	bool flag = false;
 
 	scanf("%d", &K);
 	
@@ -171,11 +172,22 @@ int main(void) {
 		for (int i = 1; i <= V; i++) {
 			qsort(graph[i].arr, graph[i].idx, sizeof(int), compare);
 		}
-		displayGraph(graph, V);
-		
-		memset(color, -1, sizeof(color));		
-		printf("%s\n", BFS(graph, queue) ? "YES" : "NO");
+		// displayGraph(graph, V);	
+
+		for (int i = 1; i <= V; i++) {			
+			if (visited[i] != VISITED) {
+				flag = BFS(graph, queue, i);
+			}
+
+			if (flag == false) {
+				break;
+			}
+		}
+				
+		printf("%s\n", flag ? "YES" : "NO");
+		memset(color, -1, sizeof(color));
 		memset(visited, 0, sizeof(visited));
+		flag = false;
 	}
 
 	return 0;
