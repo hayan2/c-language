@@ -6,6 +6,8 @@
 #include <stdlib.h>
 #include <string.h>
 
+// failed
+
 typedef struct Node {
 	struct Node* link;
 	int v;

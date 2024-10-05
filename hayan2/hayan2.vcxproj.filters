@@ -195,7 +195,16 @@
     <ClCompile Include="1707-1.c">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="1753-1.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="priority-heap.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
     <ClCompile Include="1753.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="time-exploxity.c">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>
