@@ -1,7 +1,7 @@
 #define _CRT_SECURE_NO_WARNINGS
 #define MAX_V 20005
 #define MAX_E 300005
-#define INF 214748364
+#define INF 1e9
 #define ROOT 1
 #define VISITED 1
 #define EMPTY 0
@@ -69,11 +69,12 @@ void sol(int K) {
 		res[i] = INF;
 	}
 
-	res[K] = 0;
+	res[K] = 0;	
 	push((Heap) { K, 0 });
 
 	while (idx > 0) {
 		Heap ret = pop();
+
 		if (visited[ret.v] == VISITED) {
 			continue;
 		}
