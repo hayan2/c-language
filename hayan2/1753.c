@@ -9,6 +9,8 @@
 #include <stdlib.h>
 #include <string.h>
 
+// failed
+
 typedef struct Edge {
 	// origin destination weight
 	int u, v, w;
