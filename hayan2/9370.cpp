@@ -16,7 +16,21 @@ int sol(vector<pair<int, int>> *graph, int u, int v) {
 	vector<int> ret(MAX_V, INF);
 	priority_queue<pair<int, int>> heap;
 
+	heap.push({ 0, u });
 
+	while (!heap.empty()) {
+		int weight = heap.top().first;
+		int dest = heap.top().second;
+		heap.pop();
+
+		if (ret[dest] < weight) {
+			continue;
+		}
+
+		for (int i = 0; i < graph[dest].size(); i++) {
+
+		}
+	}
 
 	return ret[v];
 }
@@ -41,7 +55,7 @@ int main(void) {
 			graph[v].push_back({ u, w });
 		}
 		
-				
+		
 	}
 
 	return 0;
