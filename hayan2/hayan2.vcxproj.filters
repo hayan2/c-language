@@ -27,6 +27,7 @@
     <ClCompile Include="quicksort.c">
       <Filter>소스 파일</Filter>
     </ClCompile>
+<<<<<<< HEAD
     <ClCompile Include="1181.c">
       <Filter>소스 파일</Filter>
     </ClCompile>
@@ -126,11 +127,222 @@
     <ClCompile Include="2164.c">
       <Filter>소스 파일</Filter>
     </ClCompile>
+=======
+>>>>>>> 4e71e3bd7633f516f2ffd0a1bc62a09a7a51d915
     <ClCompile Include="pwnable.c">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="1122.c">
+    <ClCompile Include="bullet.c">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="hashtable.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="char_compare_function.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="integer_compare_function.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="commit.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="what.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="backtracking.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="sorting_two_dimensional_array.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="string_parsing.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="strtok_parsing_string.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="1780.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="1780-1.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="1629.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="1629-1.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="11401.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="2740.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="10830.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="10830-1.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="11444.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="14928.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="14928-1.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="6549.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="6549-1.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="6549-2.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="6549-3.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="6549-4.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="1920.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="10816-1.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="10816-2.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="1654.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="1654-1.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="2805.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="2110.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="1300.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="1300-1.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="12015.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="12015-1.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="11279-1.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="11279-2.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="priority-queue.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="1927.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="11286.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="11066.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="11066-1.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="11049.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="1520.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="1520-1.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="2629.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="2629-1.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="2293.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="7579.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="7576.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="7569.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="1707.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="1707-1.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="1753-1.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="priority-heap.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="1753.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="1753-2.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="1504.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="1504.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="1504-1.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="13549.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="9370.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="11404.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="30446.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="pal.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="symmetry-of-stars.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="boolfind.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="test.txt">
+      <Filter>소스 파일</Filter>
+    </Text>
   </ItemGroup>
 </Project>

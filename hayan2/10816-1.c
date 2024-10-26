@@ -3,10 +3,8 @@
 #define MOD 10000001
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
 
-long long int target[ARRAY_LEN];
-int card[ARRAY_LEN];
+int A[ARRAY_LEN] = { 0, }, S[ARRAY_LEN];
 
 int main(void) {
 	int N, M;
@@ -14,19 +12,17 @@ int main(void) {
 	scanf("%d", &N);
 
 	for (int i = 0; i < N; i++) {
-		long long int num;
-		scanf("%lld", &num);
-		card[num + MOD]++;
+		int x;
+		scanf("%d", &x);
+		A[x + MOD]++;
 	}
 
 	scanf("%d", &M);
 
 	for (int i = 0; i < M; i++) {
-		scanf("%lld", &target[i]);
-	}
+		scanf("%d", &S[i]);
 
-	for (int i = 0; i < M; i++) {
-		printf("%d ", card[target[i] + MOD]);
+		printf("%d ", A[S[i] + MOD]);
 	}
 
 	return 0;

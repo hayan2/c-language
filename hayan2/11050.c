@@ -1,30 +1,31 @@
 #define _CRT_SECURE_NO_WARNINGS
+#define ARRAY_SIZE 11
 #include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 
-// binomial coefficient formula
-// input --- n, k  || ( 1 <= n <= 10, 0 <= k <= n )
-// n! / (k! (n - k)!)
-
-int fact(int n) {
-	int result = 1;
-
-	for (int i = 1; i <= n; i++) {
-		result *= i;
+int nCk(int N, int K) {
+	static int arr[ARRAY_SIZE][ARRAY_SIZE];
+	if (arr[N][K] > 0) {
+		return arr[N][K];
 	}
-	
-	return result;
+	else if (K == 0 || K == N) {
+		return arr[N][K] = 1;
+	}
+	else if ((K < N) && (0 < K)) {
+		return arr[N][K] = nCk(N - 1, K - 1) + nCk(N - 1, K);
+	}
+	else {
+		return 0;
+	}
 }
 
 int main(void) {
-	int n, k;
+	int N, K;
 
-	scanf("%d %d", &n, &k);
+	scanf("%d %d", &N, &K);
 
-	int N = fact(n);
-	int K = fact(k);
-	int nk = fact(n - k);
+	printf("%d", nCk(N, K));
 
-	printf("%d", N / (K * nk));
-	
 	return 0;
 }
