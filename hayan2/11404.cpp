@@ -1,38 +1,58 @@
+#define MAX_M 100001
+#define MAX_N 101
+#define INF 1e9
 #include <iostream>
-#include <string>
-#include <cmath>
+#include <algorithm>
+#include <vector>
 
 using namespace std;
+int res[MAX_N][MAX_N];
+int n, m;
+
+void sol() {
+	for (int k = 1; k <= n; k++) {
+		for (int i = 1; i <= n; i++) {
+			for (int j = 1; j <= n; j++) {
+				res[i][j] = min(res[i][j], res[i][k] + res[k][j]);
+			}
+		}
+	}
+}
 
 int main(void) {
-	string message;	
-	double PH = 0, PG = 0;
+	ios::sync_with_stdio(false);
+	cin.tie(NULL);
+	cout.tie(NULL);
 
-	getline(cin, message);	
+	cin >> n >> m;
 
-	for (int i = 0; i < message.length(); i++) {
-		if (message[i] == 'H' || message[i] == 'P' || message[i] == 'Y') {
-			PH++;
-		}
-		if (message[i] == 'S' || message[i] == 'D') {
-			PG++;
-		}
-		if (message[i] == 'A') {
-			PH++;
-			PG++;
-		}
+	fill_n(res[0], MAX_N * MAX_N, INF);
+	for (int i = 1; i < MAX_N; i++) {
+		res[i][i] = 0;
 	}
-	double res = (PH / (PH + PG) * 100);
 
-	cout.precision(2);
-	cout << fixed;
+	int u, v, w;	
 
-	if (PH == 0 && PG == 0) {
-		cout << "50.00" << endl;
+	for (int i = 0; i < m; i++) {
+		cin >> u >> v >> w;
+
+		res[u][v] = min(res[u][v], w);
 	}
-	else {
-		cout << round(100 * res) / 100 << endl;
+
+	sol();
+
+	for (int i = 1; i <= n; i++) {
+		for (int j = 1; j <= n; j++) {
+			if (res[i][j] >= INF) {
+				cout << "0";
+			}
+			else {
+				cout << res[i][j];
+			}
+			cout << " ";
+		}
+		cout << "\n";
 	}
-	
+
 	return 0;
 }
