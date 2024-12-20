@@ -1,4 +1,4 @@
-baekjoon data structure algorithm
+.baekjoon data structure algorithm
 
 https://www.acmicpc.net/
 
